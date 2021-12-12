@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+    <title>d3.statosio - viewTranslateMultiplicator</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/statosio/0.9/statosio.js"></script>
+</head>
+<body>
+    <script>
+        d3.json( "../data/performance.json" )
+            .then( ( file ) => {
+                d3.statosio( 
+                    file, 
+                    "name", 
+                    [ "mobile" ], 
+                    { "viewTranslateMultiplicator" : 0.42 }
+                )
+                h = document.createElement("a")
+                h.setAttribute("href", "../options/view__translate__multiplicator.html#example-a")
+                h.innerText = "BACK"
+                document.body.append(h)
+            } )
+    </script>
+    <div style="display:none;">Change distance between title, legend and diagram to: ```0.42```</div>
+</body>

@@ -1,0 +1,865 @@
+{
+  "scripts": {
+    "local": {
+      "d3": "../libs/d3.js",
+      "self": "../libs/statosio.js"
+    },
+    "live": {
+      "d3": "https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.js",
+      "self": "https://cdnjs.cloudflare.com/ajax/libs/statosio/0.9/statosio.js"
+    }
+  },
+  "datasets": {
+    "single": {
+      "description": "This dataset shows the mobile google pagerank performance score for a certain website.",
+      "source": "../data/performance.json",
+      "x": "name",
+      "y": [
+        "mobile"
+      ]
+    },
+    "stacked": {
+      "description": "This dataset shows the mobile **and** desktop google pagerank performance score for a certain website.",
+      "source": "../data/performance.json",
+      "x": "name",
+      "y": [
+        "mobile",
+        "desktop"
+      ]
+    },
+    "circle": {
+      "description": "This dataset shows the sum of all requests with are required to show a certain websites homepage.",
+      "source": "../data/performance.json",
+      "x": "name",
+      "y": [
+        "requests"
+      ]
+    }
+  },
+  "descriptions": {
+    "show__title": {
+      "description": "Show or hide title on the front of the diagram.",
+      "note": "The size of the diagramm gets higher inside of the canvas without an title.",
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__boolean__default",
+      "examples": [
+        {
+          "description": "Show title",
+          "self": true
+        },
+        {
+          "description": "Hide title",
+          "self": false
+        }
+      ]
+    },
+    "show__legend": {
+      "description": "Show or hide legend. Recommended for stacked diagrams.",
+      "note": "The size of the diagramm gets higher inside of the canvas without an legend.",
+      "numbering": null,
+      "dataset": "stacked",
+      "validation": "single__boolean__default",
+      "examples": [
+        {
+          "description": "Show legend",
+          "self": true
+        },
+        {
+          "description": "Hide legend",
+          "self": false
+        },
+        {
+          "description": "Hide legend",
+          "self": true,
+          "showAverage": false
+        }
+      ]
+    },
+    "show__average": {
+      "description": "Calculate and show average line",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__boolean__default",
+      "examples": [
+        {
+          "description": "Show average Line",
+          "self": true
+        },
+        {
+          "description": "Hide average Line",
+          "self": false
+        },
+        {
+          "description": "Hide average Line as show data with as points",
+          "self": false,
+          "showDataAsCircle": true
+        }
+      ]
+    },
+    "show__range_y_log": {
+      "description": "Calculate and show range y in a log scale.",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__boolean__default",
+      "examples": [
+        {
+          "description": "Show Y Range in Log Scale",
+          "self": true
+        },
+        {
+          "description": "Show Y Range in Linear Scale",
+          "self": false
+        }
+      ]
+    },
+    "show__data_as_circle": {
+      "description": "Show data as circles instead of rectangles. Only for not stacked diagram available.",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__boolean__default",
+      "examples": [
+        {
+          "description": "Draw data with circles",
+          "self": true
+        },
+        {
+          "description": "Draw data with bars",
+          "self": false
+        },
+        {
+          "description": "Hide average Line as show data with as points",
+          "self": true,
+          "showAverage": false
+        }
+      ]
+    },
+    "view__title": {
+      "description": "Set title content.",
+      "note": "Html styling is supported use \"style\" category instead for changing the look.",
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__string__default",
+      "examples": [
+        {
+          "description": "Change title to: \"---self---\"",
+          "self": "42"
+        }
+      ]
+    },
+    "view__dom_id": {
+      "description": "Set id from the <div> Element which holds the d3 content inside.",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__string__underscore_for_space",
+      "examples": [
+        {
+          "description": "Insert SVG into the DOM Element with the id: \"---self---\"",
+          "self": "findMe"
+        }
+      ]
+    },
+    "view__margin__top": {
+      "description": "Set margin top",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__integer__i0_n",
+      "examples": [
+        {
+          "description": "Set top margin to: ---self---",
+          "self": 0
+        },
+        {
+          "description": "Set top margin to: ---self---",
+          "self": 150
+        }
+      ]
+    },
+    "view__margin__right": {
+      "description": "Set margin right",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__integer__i0_n",
+      "examples": [
+        {
+          "description": "Set right margin to: ---self---",
+          "self": 0
+        },
+        {
+          "description": "Set right margin to: ---self---",
+          "self": 200
+        }
+      ]
+    },
+    "view__margin__bottom": {
+      "description": "Set margin bottom",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__integer__i0_n",
+      "examples": [
+        {
+          "description": "Set bottom margin to: ---self---",
+          "self": 0
+        },
+        {
+          "description": "Set bottom margin to: ---self---",
+          "self": 200
+        }
+      ]
+    },
+    "view__margin__left": {
+      "description": "Set margin left",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__integer__i0_n",
+      "examples": [
+        {
+          "description": "Set left margin to: ---self---",
+          "self": 0
+        },
+        {
+          "description": "Set left margin to: ---self---",
+          "self": 200
+        }
+      ]
+    },
+    "view__width__outer": {
+      "description": "Set width of the \"canvas\" including margin, titles etc.",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__integer__i1_n",
+      "examples": [
+        {
+          "description": "Set total width to: ---self---",
+          "self": 200
+        },
+        {
+          "description": "Set total width to: ---self---",
+          "self": 800
+        }
+      ]
+    },
+    "view__height__outer": {
+      "description": "Set height of the \"canvas\" including margin.",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__integer__i1_n",
+      "examples": [
+        {
+          "description": "Set total height to: ---self---",
+          "self": 100
+        },
+        {
+          "description": "Set total height to: ---self---",
+          "self": 600
+        }
+      ]
+    },
+    "view__translate__multiplicator": {
+      "description": "Between title, legend and diagram are spaces. These spaces gets calculated through this multiplicator.",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__float__f1_3",
+      "examples": [
+        {
+          "description": "Change distance between title, legend and diagram to: ---self---",
+          "self": 0.42
+        },
+        {
+          "description": "Change distance between title, legend and diagram to: ---self---",
+          "self": 2.42
+        }
+      ]
+    },
+    "data__x__key": {
+      "description": "Expect a \"key\" name from the dataset to arrange the x range.",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__string__default",
+      "examples": [
+
+      ]
+    },
+    "data__x__selectors": {
+      "description": "Expect one or more names which are included in the x range.",
+      "note": "The selection can get formatted in the \"style\" category.",
+      "numbering": null,
+      "dataset": "single",
+      "validation": "array__string__default",
+      "examples": [
+        {
+          "description": "Selection is set to: ---self---",
+          "self": [ "Data" ],
+          "showAverage": false
+        },
+        {
+          "description": "Multiple selections are set: ---self---",
+          "self": [ "Spock", "Data" ]
+        }           
+      ]
+    },
+    "data__x__text__length": {
+      "description": "This value counts the length of the x range names an cut of the rest.",
+      "note": "Use the \"placeholder\" option for changing the cut of add-on",
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__integer__i0_n",
+      "examples": [
+        {
+          "description": "Set the maximum text label length for x range values to: ---self---",
+          "self": 5
+        },
+        {
+          "description": "Set the maximum text label length for x range values to: ---self---",
+          "self": 18
+        }
+      ]
+    },
+    "data__x__text__placeholder": {
+      "description": "Set an suffix behind a string. As a signal to the viewer, that the text was cut of.",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__string__default",
+      "examples": [
+        {
+          "description": "Change suffix for cut of x range text labels to: ---self---",
+          "self": "-----",
+          "data__x__text__length": 10
+        },
+        {
+          "description": "Change suffix for cut of x range text labels to: ---self---",
+          "self": "",
+          "data__x__text__length": 10
+        }
+      ]
+    },
+    "data__y__keys": {
+      "description": "Expect \"keys\" from the dataset to arrange the y range. If you use one key the internal state is \"bar\". if you use multiple the internal is \"stacked\"",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "array__string__default",
+      "examples": [
+
+      ]
+    },
+    "data__y__ticks": {
+      "description": "Ticks in d3 land means \"steps\". Here you can set the steps from the grid and y range.",
+      "note": "The number of ticks are an estimation value. For a \"nicer\" look the d3 method .nice() interpolate the range also.",
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__integer__i1_n",
+      "examples": [
+        {
+          "description": "Change y range ticks to: ---self---",
+          "self": 2
+        },
+        {
+          "description": "Change y range ticks to: ---self---",
+          "self": 20
+        }
+      ]
+    },
+    "data__sort__current": {
+      "description": "Set the general route for sorting. You can choose between \"none\", \"values\", \"names\".",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__string__sort_route",
+      "examples": [
+        {
+          "description": "Set sort to: ---self---",
+          "self": "values"
+        },
+        {
+          "description": "Set sort to: ---self---",
+          "self": "names"
+        }
+      ]
+    },
+    "data__sort__by__values": {
+      "description": "Here you can set type of sorting. You can choose between \"ascending\" and \"decending\"",
+      "note": "You need to activate this sorting type by setting up the general route in \"sort current\"",
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__string__sort_type",
+      "examples": [
+        {
+          "description": "Set sequence to: ---self--- and hide average line." ,
+          "data__sort__current": "values",
+          "self": "ascending",
+          "showAverage": false
+        },
+        {
+          "description": "Set sequence to: ---self---",
+          "data__sort__current": "values",
+          "self": "decending"
+        },
+        {
+          "description": "Set sequence to: ---self---",
+          "data__sort__current": "none"
+        }
+      ]
+    },
+    "data__sort__by__names": {
+      "description": "Here you can set type of sorting. You can choose between \"ascending\" and \"decending\"",
+      "note": null,
+      "numbering": null,
+      "dataset": "stacked",
+      "validation": "single__string__sort_type",
+      "examples": [
+        {
+          "description": "Set sequence to: ---self---",
+          "data__sort__current": "names",
+          "self": "ascending"
+        },
+        {
+          "description": "Set sequence to: ---self---",
+          "data__sort__current": "names",
+          "self": "decending"
+        }
+      ]
+    },
+    "data__sort__selection": {
+      "description": "Change position of your selection. You can choose between \"start\", \"end\" and \"none\"",
+      "note": "The sequence is based on your selection sequence.",
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__string__sort_selection",
+      "examples": [
+        {
+          "description": "Set selection to: ---self---",
+          "self": "start",
+          "data__x__selectors": [ "Spock" ]
+        },
+        {
+          "description": "Set selection to: ---self---",
+          "self": "end",
+          "data__x__selectors": [ "Spock" ]
+        },
+        {
+          "description": "Set selection to: ---self---",
+          "self": "none",
+          "data__x__selectors": [ "Spock" ]
+        }
+      ]
+    },
+    "data__legend__text__separater": {
+      "description": "This tweak split your keys with the separater and capitalize every word and insert a space in between.",
+      "note": null,
+      "numbering": null,
+      "dataset": "stacked",
+      "validation": "single__string__default",
+      "examples": [
+        {
+          "description": "Replace character \"---self---\" to \" \" in the legend text label",
+          "show__legend": true,
+          "self": "_"
+        }
+      ]
+    },
+    "style__color__average": {
+      "description": "Set color of the average line.",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__string__hex_value",
+      "examples": [
+        {
+          "description": "Set average color line to: ---self---",
+          "self": "purple"
+        },
+        {
+          "description": "Set average color line to: ---self---",
+          "self": "#c1033c"
+        }
+      ]
+    },
+    "style__color__canvas_background": {
+      "description": "Set background color.",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__string__hex_value",
+      "examples": [
+        {
+          "description": "Set background color to: ---self---",
+          "self": "lightgray"
+        },
+        {
+          "description": "Set background color to: ---self---",
+          "self": "#fed8b1"
+        }
+      ]
+    },
+    "style__color__font": {
+      "description": "Set default font color. Excluding non-selection content.",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__string__hex_value",
+      "examples": [
+        {
+          "description": "Set default font color to: ---self---",
+          "self": "red"
+        },
+        {
+          "description": "Set default font color to: ---self---",
+          "self": "#f66504"
+        }
+      ]
+    },
+    "style__color__legends": {
+      "description": "Set legend color palettes. Expect an array of \"hex\" values or \"html\" color-names.",
+      "note": "You can set as less as you want, if a color is missing it will filled with \"#000000\"",
+      "numbering": null,
+      "dataset": "stacked",
+      "validation": "array__string__hex_value",
+      "examples": [
+        {
+          "description": "Set color legend palette to: ---self---",
+          "self": [
+            "yellow",
+            "red",
+            "green"
+          ]
+        },
+        {
+          "description": "",
+          "self": [
+            "#f59351",
+            "#c9504a",
+            "#12514c",
+            "#2f7872",
+            "#a6b797"
+          ]
+        }
+      ]
+    },
+    "style__color__gridline": {
+      "description": "Set the gridline color. Use \"hex\" value or \"html\" color-names.",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__string__hex_value",
+      "examples": [
+        {
+          "description": "Set gridline value to: ---self---",
+          "self": "yellow"
+        },
+        {
+          "description": "Set gridline value to: ---self---",
+          "self": "#f59351"
+        }
+      ]
+    },
+    "style__color__selectors__chart": {
+      "description": "Colorize the chart of the selection. Use \"hex\" values or \"html\" color-names.",
+      "note": null,
+      "numbering": null,
+      "dataset": "stacked",
+      "validation": "array__string__hex_value",
+      "examples": [
+        {
+          "description": "Set palette to: ---self---",
+          "self": [
+            "yellow",
+            "red",
+            "green"
+          ],
+          "data__x__selectors": [ "Spock" ]
+        },
+        {
+          "description": "Set palette to: ---self---",
+          "self": [
+            "#f59351",
+            "#c9504a",
+            "#12514c"
+          ],
+          "data__x__selectors": [ "Spock" ]
+        }
+      ]
+    },
+    "style__color__selectors__text": {
+      "description": "Colorize the font of the selection. Use \"hex\" values or \"html\" color-names.",
+      "note": null,
+      "numbering": null,
+      "dataset": "stacked",
+      "validation": "array__string__hex_value",
+      "examples": [
+        {
+          "description": "Set font color of selection and others to: ---self---",
+          "self": [
+            "grey",
+            "lightgrey"
+          ],
+          "data__x__selectors": [ "Spock" ]
+        },
+        {
+          "description": "Set font color of selection and others to: ---self---",
+          "self": [
+            "#f59351",
+            "#a6b797"
+          ],
+          "data__x__selectors": [ "Spock" ]
+        }
+      ]
+    },
+    "style__font__size__text": {
+      "description": "Set default font size, including selection.",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__integer__i1_n",
+      "examples": [
+        {
+          "description": "Set default font size to: ---self---",
+          "self": 20
+        },
+        {
+          "description": "Set default font size to: ---self---",
+          "self": 5
+        }
+      ]
+    },
+    "style__font__size__title": {
+      "description": "Set font size of title",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__integer__i1_n",
+      "examples": [
+        {
+          "description": "Set title font size to: ---self---",
+          "self": 20
+        },
+        {
+          "description": "Set title font size to: ---self---",
+          "self": 5
+        }
+      ]
+    },
+    "style__font__family": {
+      "description": "Set default font family",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__string__font_family",
+      "examples": [
+        {
+          "description": "Set default font family to: ---self---",
+          "self": "georgia"
+        },
+        {
+          "description": "Set default font family to: ---self---",
+          "self": "verdana"
+        }
+      ]
+    },
+    "style__font__format__selectors": {
+      "description": "Set format of content use \"Html\" Syntax (\"bold\", \"underline\", \"normal\" etc.). ",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "array__string__text_format",
+      "examples": [
+        {
+          "description": "Set font format of selection x range text labels to: ---self---",
+          "self": [
+            "normal",
+            "bold"
+          ],
+          "data__x__selectors": [ "Spock" ]
+        },
+        {
+          "description": "Set font format of selection x range text labels to: ---self---",
+          "self": [
+            "bold",
+            "normal"
+          ],
+          "data__x__selectors": [ "Spock" ]
+        }
+      ]
+    },
+    "style__stroke__average": {
+      "description": "Set stroke weight of average line.",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__integer__i1_n",
+      "examples": [
+        {
+          "description": "Set stroke weight of average line to: ---self---",
+          "self": 1
+        },
+        {
+          "description": "Set stroke weight of average line to: ---self---",
+          "self": 15
+        }
+      ]
+    },
+    "style__stroke__gridline": {
+      "description": "Set stroke weight of gridline.",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__integer__i1_n",
+      "examples": [
+        {
+          "description": "Set stroke weight of gridline to: ---self---",
+          "self": 2
+        },
+        {
+          "description": "Set stroke weight of gridline to: ---self---",
+          "self": 14
+        }
+      ]
+    },
+    "style__legend__rect_size__full": {
+      "description": "Set rectangle size of legend item.",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__integer__i1_n",
+      "examples": [
+        {
+          "description": "Set rect size of legend color separators to: ---self---",
+          "self": 4
+        },
+        {
+          "description": "Set rect size of legend color separators to: ---self---",
+          "self": 20
+        }
+      ]
+    },
+    "style__other__circle_chart_radius": {
+      "description": "Set radius of circle.",
+      "note": "To show circles you need to switch to circle chart mode.",
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__integer__i1_n",
+      "examples": [
+        {
+          "description": "Set circle radius to: ---self---",
+          "show__data_as_circle": true,
+          "self": 4
+        },
+        {
+          "description": "Set circle radius to: ---self---",
+          "show__data_as_circle": true,
+          "self": 14
+        }
+      ]
+    },
+    "style__other__range_x_text_rotation": {
+      "description": "Set text rotation of the x axis.",
+      "note": null,
+      "numbering": null,
+      "dataset": "single",
+      "validation": "single__integer__minus90_0",
+      "examples": [
+        {
+          "description": "Set x range text label rotation to: ---self---",
+          "self": -90
+        },
+        {
+          "description": "Set x range text label rotation to: ---self---",
+          "self": -20
+        }
+      ]
+    }
+  },
+  "validations": {
+    "string": {
+      "default": {
+        "description": "Allow A-Z, a-b and 0-9 as value.",
+        "regex": "^[a-zA-Z0-9]*$"
+      },
+      "underscore_for_space": {
+        "description": "Allow A-Z, a-b and 0-9 as value, use _ for space.",
+        "regex": "^[a-zA-Z0-9_]*$"
+      },
+      "text_format": {
+        "description": "Allow \"bold\", \"normal\" and \"underline\" as value.",
+        "regex": "^(?:bold|normal|underline)"
+      },
+      "hex_value": {
+        "description": "Allow hex values including short writing needs to with starting with #.",
+        "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+      },
+      "font_family": {
+        "description": "Allow \"arial\", \"times\" and \"helvetica\" as value",
+        "regex": "^(?:arial|times|helvetica)"
+      },
+      "sort_route": {
+        "description": "Allow \"none\", \"values\" and \"names\" as value",
+        "regex": "^(?:none|values|names)"
+      },
+      "sort_type": {
+        "description": "Allow \"ascending\" or \"decending\" as value.",
+        "regex": "^(?:ascending|decending)"
+      },
+      "sort_selection": {
+        "description": "Allow \"start\" or \"end\" as value.",
+        "regex": "^(?:start|end)"
+      }
+    },
+    "boolean": {
+      "default": {
+        "description": "Allow true or false as value.",
+        "regex": "^(?:true|false)"
+      }
+    },
+    "integer": {
+      "default": {
+      },
+      "i0_n": {
+        "description": "Allow positive integers and 0 as value",
+        "regex": "^(?:[0-9]+(?:.[0-9]+)?)?$"
+      },
+      "i1_n": {
+        "description": "Allow positive integers beginning from 1 as value.",
+        "regex": "^[1-9]d*$"
+      },
+      "minus90_0": {
+        "description": "Allow negative integers from -90 to -1 including 0 as value.",
+        "regex": "^0|-[1-9]d*"
+      }
+    },
+    "float": {
+      "default": {
+      },
+      "f1_3": {
+        "description": "Allow float numbers from 1.0 to 3.99.. as value.",
+        "regex": "^[1-3](.[0-9]+)?$"
+      }
+    }
+  },
+  "categories": {
+    "show": {
+      "description": "Show or hide elements from the view."
+    },
+    "view": {
+      "description": "Settings around the diagram as a whole."
+    },
+    "data": {
+      "description": "Rearrange Data by sorting or set selectors."
+    },
+    "style": {
+      "description": "Set style settings from specific element."
+    }
+  }
+}

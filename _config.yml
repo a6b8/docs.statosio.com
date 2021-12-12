@@ -1,0 +1,20 @@
+title: Statosio
+lang: en
+description: Simple chart diagrams
+
+plugins:
+    - jekyll-default-layout
+    - jekyll-readme-index
+    - jekyll-github-metadata
+    - jekyll-titles-from-headings
+    - jemoji
+    - jekyll-avatar
+    - jekyll-mentions
+    
+readme_index:
+    with_frontmatter: true
+
+destination: ./docs
+
+google:
+  gtag: G-J792Y8LFB7

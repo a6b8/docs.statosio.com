@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180px" height="223px" viewBox="0 0 180 223" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>S</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#D55170" offset="0%"></stop>
+            <stop stop-color="#E2B08E" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="HelveticaNeue-Bold, Helvetica Neue" font-size="298" font-weight="bold" letter-spacing="48.6530612">
+        <g id="Artboard" transform="translate(-64.000000, -38.000000)" fill="url(#linearGradient-1)">
+            <text id="S">
+                <tspan x="57" y="256">S</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

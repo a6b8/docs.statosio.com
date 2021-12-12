@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+    <title>d3.statosio - dataXSelectors</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/statosio/0.9/statosio.js"></script>
+</head>
+<body>
+    <script>
+        d3.json( "../data/performance.json" )
+            .then( ( file ) => {
+                d3.statosio( 
+                    file, 
+                    "name", 
+                    [ "mobile" ], 
+                    { "dataXSelectors" : ["Data"], "showAverage" : false }
+                )
+                h = document.createElement("a")
+                h.setAttribute("href", "../options/data__x__selectors.html#example-a")
+                h.innerText = "BACK"
+                document.body.append(h)
+            } )
+    </script>
+    <div style="display:none;">Selection is set to: ```["Data"]```</div>
+</body>

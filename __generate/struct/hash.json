@@ -1,0 +1,26 @@
+{
+  "import": {
+    "path": "./libs/statosio.js",
+    "from": "default_values = ",
+    "to": "\n\n    \n    "
+  },
+  "path": {
+    "root": "./",
+    "name": "",
+    "full": null,
+    "children": {
+      "options": {
+        "name": "options",
+        "full": null,
+        "files": {
+        }
+      },
+      "sources": {
+        "name": "sources",
+        "full": null,
+        "files": {
+        }
+      }
+    }
+  }
+}

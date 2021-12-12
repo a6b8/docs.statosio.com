@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+    <title>d3.statosio - styleStrokeGridline</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/statosio/0.9/statosio.js"></script>
+</head>
+<body>
+    <script>
+        d3.json( "../data/performance.json" )
+            .then( ( file ) => {
+                d3.statosio( 
+                    file, 
+                    "name", 
+                    [ "mobile" ], 
+                    { "styleStrokeGridline" : 2 }
+                )
+                h = document.createElement("a")
+                h.setAttribute("href", "../options/style__stroke__gridline.html#example-a")
+                h.innerText = "BACK"
+                document.body.append(h)
+            } )
+    </script>
+    <div style="display:none;">Set stroke weight of gridline to: ```2```</div>
+</body>

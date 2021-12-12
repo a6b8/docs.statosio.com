@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+    <title>d3.statosio - dataSortByValues</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/statosio/0.9/statosio.js"></script>
+</head>
+<body>
+    <script>
+        d3.json( "../data/performance.json" )
+            .then( ( file ) => {
+                d3.statosio( 
+                    file, 
+                    "name", 
+                    [ "mobile" ], 
+                    { "dataSortCurrent" : "values", "dataSortByValues" : "ascending", "showAverage" : false }
+                )
+                h = document.createElement("a")
+                h.setAttribute("href", "../options/data__sort__by__values.html#example-a")
+                h.innerText = "BACK"
+                document.body.append(h)
+            } )
+    </script>
+    <div style="display:none;">Set sequence to: ```ascending``` and hide average line.</div>
+</body>
