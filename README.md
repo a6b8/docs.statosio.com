@@ -2,8 +2,8 @@
 <br>
 
 Available Languages:
-- [```Javascript```](https://github.com/a6b8/statosio-for-javascript)
-- [```Ruby```](https://github.com/a6b8/statosio-for-ruby)
+- [Javascript](https://github.com/a6b8/statosio-for-javascript)
+- [Ruby](https://github.com/a6b8/statosio-for-ruby)
 
 Statosio is a library to generate simple charts, in a fast and reliable way.
 
