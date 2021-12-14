@@ -19,8 +19,15 @@
 
 **Javascript**
 ```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/statosio/0.9/statosio.js"></script>
+<script>
+  d3.json( "https://docs.statosio.com/data/performance.json" )
+    .then( ( file ) => { d3.statosio( file, "name", [ "mobile" ], {} ) } 
+  )
+</script>
 ```
+
 
 **Ruby**
 ```ruby
