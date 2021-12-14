@@ -4,7 +4,6 @@
 
 **Statosio** is a library to generate simple charts, in a fast and reliable way.
 
-<br>
 
 ## Available Languages:
 - **Javascript:** [Github](https://github.com/a6b8/statosio-for-javascript) / [cdnjs](https://cdnjs.com/libraries/statosio)
