@@ -23,7 +23,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/statosio/0.9/statosio.js"></script>
 <script>
   d3.json( "https://docs.statosio.com/data/performance.json" )
-    .then( ( file ) => { d3.statosio( file, "name", [ "mobile" ], {} ) } 
+    .then( ( file ) => { d3.statosio( file, "name", "mobile", {} ) } 
   )
 </script>
 ```
@@ -31,19 +31,21 @@
 
 **Ruby**
 ```ruby
-require 'statosio'
-require 'prawn'
-require 'prawn-svg'
+require "statosio"
 
+require "open-uri"
+require "prawn"
+require "prawn-svg"
 
-file = File.read( 'data.json' )
+url = "https://docs.statosio.com/data/performance.json"
+file = OpenURI::open_uri( url ).read
 dataset = JSON.parse( file )
 
 statosio = Statosio::Generate.new
 chart = statosio.svg(
     dataset: dataset,
-    x: 'name',
-    y: 'mobile',
+    x: "name",
+    y: "mobile",
     options: {}
 )
 
