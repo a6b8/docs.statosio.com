@@ -10,6 +10,11 @@
 - **Ruby:** [Github](https://github.com/a6b8/statosio-for-ruby) / [RubyGems](https://rubygems.org/gems/statosio)
 
 
+## Video Introduction
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/i6od9O8jz1E?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 ## Source Code
 
 **Javascript**
@@ -39,10 +44,3 @@ Prawn::Document.generate( "statosio.pdf" ) do | pdf |
   pdf.svg( chart, width: 500, )
 end
 ```
-
-
-[![CDNJS](https://img.shields.io/cdnjs/v/statosio.svg)](https://cdnjs.com/libraries/statosio)
-
-## Video Introduction
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/i6od9O8jz1E?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
