@@ -1,9 +1,6 @@
 <img src="./assets/images/statosio.png" height="60px">
-<br>
 
-### Available Languages:
-- [statosio-for-javascript](https://github.com/a6b8/statosio-for-javascript) ([cdnjs](https://cdnjs.com/libraries/statosio))
-- [statosio-for-ruby](https://github.com/a6b8/statosio-for-ruby) ([RubyGem](https://rubygems.org/gems/statosio))
+<br>
 
 **Statosio** is a library to generate simple charts, in a fast and reliable way.
 
@@ -13,6 +10,15 @@
 
 :heavy_check_mark: highly customizable with 40+ style and data options.
 
+<br>
+
+## Available Languages:
+- [statosio-for-javascript](https://github.com/a6b8/statosio-for-javascript) ([cdnjs](https://cdnjs.com/libraries/statosio))
+- [statosio-for-ruby](https://github.com/a6b8/statosio-for-ruby) ([RubyGem](https://rubygems.org/gems/statosio))
+
+<br>
+
+## Source Code
 
 **Javascript**
 ```html
