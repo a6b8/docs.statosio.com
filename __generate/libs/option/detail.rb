@@ -383,20 +383,24 @@ def markdown_code_ruby_1()
 gem install statosio
 gem install prawn
 gem install prawn-svg
+gem install open-uri
 ```
 EOS
     return template
 end
-
+ 
 
 def markdown_code_ruby_2( code )
     template = <<-EOS
 ```ruby
 require "statosio"
+
+require "open-uri"
 require "prawn"
 require "prawn-svg"
 
-file = File.read( "#{ code[:dataset][:source] }" )
+url = "#{ code[:dataset][:source] }"
+file = OpenURI::open_uri( url ).read
 dataset = JSON.parse( file )
 
 statosio = Statosio::Generate.new
@@ -474,6 +478,7 @@ def markdown_prepare( item )
             .gsub( ',', ', ' )
         code[:descriptions][:example] = options[:description]
         options.delete( :description )
+
         code[:dataset][:options] = options
             .to_json
             .to_s.
@@ -482,8 +487,9 @@ def markdown_prepare( item )
             .gsub( ',', ', ' )
         code[:dataset][:options]
             .gsub!( 'self', camel_case )
+
         code[:descriptions][:dataset] = dataset[:description]
-        code[:browser_title] = 'd3.statosio - ' + camel_case
+        code[:browser_title] = 'docs.statosio - ' + camel_case
         return code
     end
   
@@ -560,7 +566,8 @@ def markdown_prepare( item )
       
         options = {}
         tmp.each { | d | options[ d[:camel_case].to_sym ] = d[:value]  }
-        c = code( item[:scripts], item[:dataset], options, item[:default][:camel_case] ) 
+
+        c = code( item[:scripts], item[:dataset], options, item[:default][:camel_case] )
         params[:examples][:codes].push( c )
     end
 

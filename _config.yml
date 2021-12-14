@@ -15,6 +15,3 @@ readme_index:
     with_frontmatter: true
 
 destination: ./docs
-
-google:
-  gtag: G-J792Y8LFB7

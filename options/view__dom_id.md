@@ -52,7 +52,7 @@ This dataset shows the mobile google pagerank performance score for a certain we
 
 | | **Value** | **Type** |
 |------:|:------|:------|
-| **Source** | ["../data/performance.json"](../data/performance.json) | String |
+| **Source** | ["https://docs.statosio.com/data/performance.json"](https://docs.statosio.com/data/performance.json) |  |
 | **X** | ```"name"``` | String |
 | **Y** | ```[ "mobile" ]``` | Array |
 | **Options** | ```{ "viewDomId" : "findMe" }``` | Object |
@@ -76,7 +76,7 @@ d3.statosio(
 ```html
 <!DOCTYPE html>
 <head>
-    <title>d3.statosio - viewDomId</title>
+    <title>docs.statosio - viewDomId</title>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.js"></script>
@@ -84,7 +84,7 @@ d3.statosio(
 </head>
 <body>
     <script>
-        d3.json( "../data/performance.json" )
+        d3.json( "https://docs.statosio.com/data/performance.json" )
             .then( ( file ) => {
                 d3.statosio( 
                     file, 
@@ -100,20 +100,24 @@ d3.statosio(
 
 * Gem Install
 
-```ruby
+```bash
 gem install statosio
 gem install prawn
 gem install prawn-svg
+gem install open-uri
 ```
 
 * Implementation
 
 ```ruby
 require "statosio"
+
+require "open-uri"
 require "prawn"
 require "prawn-svg"
 
-file = File.read( "../data/performance.json" )
+url = "https://docs.statosio.com/data/performance.json"
+file = OpenURI::open_uri( url ).read
 dataset = JSON.parse( file )
 
 statosio = Statosio::Generate.new

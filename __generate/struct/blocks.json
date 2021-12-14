@@ -12,7 +12,7 @@
   "datasets": {
     "single": {
       "description": "This dataset shows the mobile google pagerank performance score for a certain website.",
-      "source": "../data/performance.json",
+      "source": "https://docs.statosio.com/data/performance.json",
       "x": "name",
       "y": [
         "mobile"
@@ -20,7 +20,7 @@
     },
     "stacked": {
       "description": "This dataset shows the mobile **and** desktop google pagerank performance score for a certain website.",
-      "source": "../data/performance.json",
+      "source": "https://docs.statosio.com/data/performance.json",
       "x": "name",
       "y": [
         "mobile",
@@ -29,7 +29,7 @@
     },
     "circle": {
       "description": "This dataset shows the sum of all requests with are required to show a certain websites homepage.",
-      "source": "../data/performance.json",
+      "source": "https://docs.statosio.com/data/performance.json",
       "x": "name",
       "y": [
         "requests"

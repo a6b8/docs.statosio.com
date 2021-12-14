@@ -16,7 +16,7 @@ def blocks_create( path )
     end
 
     nr = {}
-    alphabet = ( "A".."Z" ).to_a
+    alphabet = ( 'A'..'Z' ).to_a
     blocks[:descriptions].keys.each do | key |
         k = key.to_s.split( '__' )[ 0 ].to_sym
         nr.key?( k ) ? nr[ k ] = nr[ k ] + 1 : nr[ k ] = 1

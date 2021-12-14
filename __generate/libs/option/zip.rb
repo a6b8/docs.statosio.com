@@ -69,8 +69,12 @@ def zip_create_folder( item, blocks )
       to: nil
     }
 
-    file[:from] = blocks[:datasets][ item[:dataset] ][:source].gsub( '..', item[:root] )
-    file[:to] = blocks[:datasets][ item[:dataset] ][:source].gsub( '..',  item[:to][:full] )
+    # file[:from] = blocks[:datasets][ item[:dataset] ][:source].gsub( '..', item[:root] )
+    file[:from] = '../data/performance.json'.gsub( '..', item[:root] )
+
+    # file[:to] = blocks[:datasets][ item[:dataset] ][:source].gsub( '..', item[:to][:full] )
+    file[:to] = '../data/performance.json'.gsub( '..', item[:to][:full] )
+
     files.push( file )
 
     tmp = tmp.each do | value | 

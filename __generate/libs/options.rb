@@ -33,7 +33,7 @@ def option_merge_data( id, sort, state, blocks, sources, files, root )
     item[:default][:camel_case] = helper_flat_to_camel_case( item[:default][:flatten] )
     validation = blocks[:descriptions][ item[:default][:flatten] ][:validation].to_s.split( '__' )
     item[:default][:single] = validation[ 0 ].eql?( 'single' )
-    tmp =  blocks[:validations][ validation[ 1 ].to_sym ][ validation[ 2 ].to_sym ]
+    tmp = blocks[:validations][ validation[ 1 ].to_sym ][ validation[ 2 ].to_sym ]
     item[:default][:regex] = tmp[:regex]
     item[:default][:description] = tmp[:description]
   
@@ -60,7 +60,7 @@ def options_create( struct, blocks, script, root )
     require './__generate/libs/option/html'
     require './__generate/libs/option/zip'
     require './__generate/libs/option/readme'
-
+ 
     readmes = []
     diagramms = []
     for i in 0..struct[:defaults].length - 1
