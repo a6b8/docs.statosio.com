@@ -2,8 +2,8 @@
 <br>
 
 ### Available Languages:
-- [Javascript](https://github.com/a6b8/statosio-for-javascript) ([cdnjs](https://cdnjs.com/libraries/statosio))
-- [Ruby](https://github.com/a6b8/statosio-for-ruby) ([RubyGem](https://rubygems.org/gems/statosio))
+- [statosio-for-javascript](https://github.com/a6b8/statosio-for-javascript) ([cdnjs](https://cdnjs.com/libraries/statosio))
+- [statosio-for-ruby](https://github.com/a6b8/statosio-for-ruby) ([RubyGem](https://rubygems.org/gems/statosio))
 
 **Statosio** is a library to generate simple charts, in a fast and reliable way.
 
