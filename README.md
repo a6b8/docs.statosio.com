@@ -1,7 +1,5 @@
 <img src="./assets/images/statosio.png" height="60px">
 
-<br>
-
 **Statosio** is a library to generate simple charts, in a fast and reliable way.
 
 
