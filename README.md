@@ -7,8 +7,8 @@
 <br>
 
 ## Available Languages:
-- [statosio-for-javascript](https://github.com/a6b8/statosio-for-javascript) ([cdnjs](https://cdnjs.com/libraries/statosio))
-- [statosio-for-ruby](https://github.com/a6b8/statosio-for-ruby) ([RubyGem](https://rubygems.org/gems/statosio))
+- **Javascript:** [Github](https://github.com/a6b8/statosio-for-javascript) / [cdnjs](https://cdnjs.com/libraries/statosio)
+- **Ruby:** [Github](https://github.com/a6b8/statosio-for-ruby) / [RubyGems](https://rubygems.org/gems/statosio)
 
 
 ## Source Code
