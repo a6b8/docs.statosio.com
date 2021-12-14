@@ -48,11 +48,3 @@ end
 ## Video Introduction
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/i6od9O8jz1E?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-## Speedtest
-
-| **Name** | **Result** |
-| Loading Time | <insert id='statosioLoadingTime'>waiting..</insert> |
-| Dom Elements | <insert id='statosioDomElements'>waiting..</insert> |
-
-
